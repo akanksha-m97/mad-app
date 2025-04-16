@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CDD3D7"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Logo -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:clickable="true"
+        android:drawableEnd="@drawable/baseline_arrow_forward_24"
+        android:text="with email"
+        android:textColorLink="#121010"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:drawableLeftCompat="@drawable/baseline_arrow_forward_24"
+        app:drawableRightCompat="@drawable/baseline_arrow_forward_24" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="143dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="58dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/whatsapp_image_2025_04_08_at_23_10_21_8c5cc88a"
+        tools:srcCompat="@drawable/whatsapp_image_2025_04_08_at_23_10_21_8c5cc88a" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:text="Create an account"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Subtitle -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Enter your phone no. to sign up for this app"
+        android:textColor="#888888"
+        android:textSize="14sp" />
+
+    <!-- Username -->
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@color/cardview_light_background"
+        android:drawableLeft="@drawable/baseline_account_circle_24"
+        android:ems="10"
+        android:hint="Username"
+        android:padding="12dp" />
+
+    <!-- Phone no -->
+    <EditText
+        android:id="@+id/password_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/baseline_call_24"
+        android:ems="10"
+        android:hint="phone no"
+        android:inputType="text|textPassword"
+        android:padding="12dp" />
+
+    <!-- Create Button -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="274dp"
+        android:layout_height="43dp"
+        android:backgroundTint="#231F1F"
+        android:text="Create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <!-- Divider -->
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="or" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="279dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#231F1F"
+        android:text="Continue with Google "
+        app:icon="@drawable/google_icons_09_512"
+        app:iconGravity="textStart"
+        app:iconPadding="6dp"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Apple Button -->
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="281dp"
+        android:layout_height="43dp"
+        android:backgroundTint="#231F1F"
+        android:backgroundTintMode="multiply"
+        android:text="Continue with Apple"
+        app:icon="@drawable/images"
+        app:iconGravity="textStart"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</LinearLayout>
+

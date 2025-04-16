@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#F4F4F4"
+    app:circularflow_defaultRadius="5dp"
+    app:circularflow_radiusInDP="5dp"
+    tools:context=".Notes_Lectures">
+
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="214dp"
+        android:background="@drawable/half_circle"
+        android:orientation="vertical"
+        android:weightSum="11"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UserName"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="16dp"
+        android:orientation="vertical" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainGrid"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_wieght="8"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:padding="14dp"
+        android:rowCount="3"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="4933dp"
+            android:layout_height="25dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mainGrid"
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:layout_wieght="8"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:padding="14dp"
+            android:rowCount="3"/>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+</RelativeLayout>
+
+</RelativeLayout>
