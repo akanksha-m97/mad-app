@@ -27,6 +27,7 @@
         android:layout_width="78dp"
         android:layout_height="47dp"
         android:layout_gravity="center"
+        android:layout_marginTop="29dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/whatsapp_image_2025_04_08_at_23_10_21_8c5cc88a" />
 
@@ -93,11 +94,9 @@
         android:text="Create"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Divider -->
-
 
 
     <TextView
@@ -136,7 +135,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 
 </LinearLayout>
