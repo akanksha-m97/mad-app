@@ -24,45 +24,42 @@
             android:layout_height="8dp"
             android:layout_weight="2">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="UserName"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold|italic" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UserName"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold|italic" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
     <GridLayout
         android:layout_width="wrap_content"
-        android:layout_height="0dp">
-    <LinearLayout
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_margin="16dp"
-        android:orientation="vertical" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mainGrid"
-        android:layout_width="match_parent"
-        android:layout_height="83dp"
-        android:layout_wieght="8"
-        android:alignmentMode="alignMargins"
         android:columnCount="2"
-        android:columnOrderPreserved="false"
-        android:padding="14dp"
-        android:rowCount="3"/>
+        android:rowCount="3"
+        android:layout_margin="16dp">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="4933dp"
+            android:id="@+id/mainGriD"
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:layout_weight="8"
+            android:padding="14dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_row="0"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp" />
@@ -71,12 +68,8 @@
             android:id="@+id/mainGrid"
             android:layout_width="match_parent"
             android:layout_height="83dp"
-            android:layout_wieght="8"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-            android:padding="14dp"
-            android:rowCount="3"/>
+            android:layout_weight="8"
+            android:padding="14dp" />
 
     </GridLayout>
 
@@ -84,8 +77,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
-
-</RelativeLayout>
+        android:text="TextView">
 
 </RelativeLayout>
