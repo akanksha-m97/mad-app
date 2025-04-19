@@ -1,6 +1,8 @@
 package com.example.eduQuest
 
 import com.loginpage.myapplication.MainActivity
+import com.loginpage.myapplication.R
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
