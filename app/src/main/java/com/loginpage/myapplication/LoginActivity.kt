@@ -1,5 +1,6 @@
 package com.example.eduQuest
 
+import com.loginpage.myapplication.MainActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -12,6 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+
 
 
 class LoginActivity : AppCompatActivity() {
