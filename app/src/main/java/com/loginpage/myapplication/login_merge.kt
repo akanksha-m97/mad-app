@@ -1,60 +1,57 @@
-package com.example.login_merge
+package com.loginpage.myapplication
 
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.login_merge.R
-class LoginActivity : AppCompatActivity() {
 
-    private lateinit var btnSwitchToUser: Button
-    private lateinit var btnSwitchToAdmin: Button
-    private lateinit var userLayout: LinearLayout
-    private lateinit var adminLayout: LinearLayout
-    private lateinit var userEmail: EditText
-    private lateinit var userPassword: EditText
-    private lateinit var adminEmail: EditText
-    private lateinit var adminPassword: EditText
-    private lateinit var btnUserLogin: Button
-    private lateinit var btnAdminLogin: Button
+class login_merge : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // Initialize views
-        btnSwitchToUser = findViewById(R.id.btnSwitchToUser)
-        btnSwitchToAdmin = findViewById(R.id.btnSwitchToAdmin)
-        userLayout = findViewById(R.id.userLoginLayout)
-        adminLayout = findViewById(R.id.adminLoginLayout)
-        userEmail = findViewById(R.id.etUserEmail)
-        userPassword = findViewById(R.id.etUserPassword)
-        adminEmail = findViewById(R.id.etAdminEmail)
-        adminPassword = findViewById(R.id.etAdminPassword)
-        btnUserLogin = findViewById(R.id.btnUserLogin)
-        btnAdminLogin = findViewById(R.id.btnAdminLogin)
+        // Buttons to switch user/admin
+        val btnSwitchToUser = findViewById<Button>(R.id.btnSwitchToUser)
+        val btnSwitchToAdmin = findViewById<Button>(R.id.btnSwitchToAdmin)
 
-        // Switch buttons
+        // Layouts
+        val userLoginLayout = findViewById<LinearLayout>(R.id.userLoginLayout)
+        val adminLoginLayout = findViewById<LinearLayout>(R.id.adminLoginLayout)
+
+        // User input fields
+        val etUserEmail = findViewById<EditText>(R.id.etUserEmail)
+        val etUserPassword = findViewById<EditText>(R.id.etUserPassword)
+        val btnUserLogin = findViewById<Button>(R.id.btnUserLogin)
+
+        // Admin input fields
+        val etAdminEmail = findViewById<EditText>(R.id.etAdminEmail)
+        val etAdminPassword = findViewById<EditText>(R.id.etAdminPassword)
+        val btnAdminLogin = findViewById<Button>(R.id.btnAdminLogin)
+
+        // Switch to User Login
         btnSwitchToUser.setOnClickListener {
-            userLayout.visibility = View.VISIBLE
-            adminLayout.visibility = View.GONE
+            userLoginLayout.visibility = View.VISIBLE
+            adminLoginLayout.visibility = View.GONE
         }
 
+        // Switch to Admin Login
         btnSwitchToAdmin.setOnClickListener {
-            userLayout.visibility = View.GONE
-            adminLayout.visibility = View.VISIBLE
+            userLoginLayout.visibility = View.GONE
+            adminLoginLayout.visibility = View.VISIBLE
         }
 
-        // Handle login buttons
+        // User login button click
         btnUserLogin.setOnClickListener {
-            val email = userEmail.text.toString()
-            val pass = userPassword.text.toString()
+            val email = etUserEmail.text.toString()
+            val password = etUserPassword.text.toString()
             Toast.makeText(this, "User Login: $email", Toast.LENGTH_SHORT).show()
         }
 
+        // Admin login button click
         btnAdminLogin.setOnClickListener {
-            val email = adminEmail.text.toString()
-            val pass = adminPassword.text.toString()
+            val email = etAdminEmail.text.toString()
+            val password = etAdminPassword.text.toString()
             Toast.makeText(this, "Admin Login: $email", Toast.LENGTH_SHORT).show()
         }
     }

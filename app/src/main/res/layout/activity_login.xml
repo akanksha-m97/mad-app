@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Buttons -->
+    <Button
+        android:id="@+id/btnSwitchToUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Switch to User" />
+
+    <Button
+        android:id="@+id/btnSwitchToAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Switch to Admin" />
+
+    <!-- User Login Layout -->
+    <LinearLayout
+        android:id="@+id/userLoginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etUserEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User Email" />
+
+        <EditText
+            android:id="@+id/etUserPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnUserLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Login" />
+    </LinearLayout>
+
+    <!-- Admin Login Layout -->
+    <LinearLayout
+        android:id="@+id/adminLoginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/etAdminEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Admin Email" />
+
+        <EditText
+            android:id="@+id/etAdminPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Admin Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnAdminLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Admin Login" />
+    </LinearLayout>
+
+</LinearLayout>
