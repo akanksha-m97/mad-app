@@ -30,10 +30,10 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val emailEditText = findViewById<EditText>(R.id.emailEditText)  // Match this with your layout ID
-        val passwordEditText = findViewById<EditText>(R.id.password_toggle)
-        val createButton = findViewById<Button>(R.id.button)
-        val googleButton = findViewById<Button>(R.id.button2)
+        val emailEditText = findViewById<EditText>(R.id.etAdminEmail)  // Match this with your layout ID
+        val passwordEditText = findViewById<EditText>(R.id.etAdminPassword)
+        val createButton = findViewById<Button>(R.id.btnUserLogin)
+        val googleButton = findViewById<Button>(R.id.btnSwitchToAdmin)
 
         // Create Account with Email and Password
         createButton.setOnClickListener {
@@ -55,18 +55,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // Google Sign-In Setup
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id)) // get from Firebase
-            .requestEmail()
-            .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
-
-        googleButton.setOnClickListener {
-            val signInIntent = googleSignInClient.signInIntent
-            startActivityForResult(signInIntent, RC_SIGN_IN)
-        }
     }
 
     // Google Sign-In Result
