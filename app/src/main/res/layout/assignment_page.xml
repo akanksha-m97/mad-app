@@ -1,146 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#FFFFFF"
-    tools:context=".AssignmentActivity">
+    android:background="#F9F9FB">
 
-    <!-- Assignment Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardAssignment"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:strokeColor="#E0E0E0"
-        app:strokeWidth="1dp"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground">
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Top Bar -->
         <LinearLayout
-            android:layout_width="384dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#000000"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp">
 
-            <!-- Assignment Header -->
-            <TextView
-                android:id="@+id/tvAssignmentHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="EduQuest Assignment"
-                android:textColor="#003366"
-                android:textSize="24sp"
-                android:textStyle="bold" <!-- Navy Blue -->
-            android:gravity="center"
-            android:paddingBottom="12dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="#FFFFFF"
+                android:layout_marginEnd="8dp" />
 
-            <!-- Subject -->
-            <TextView
-                android:id="@+id/tvSubject"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="📘 Subject: Computer Science"
-                android:textColor="#003366"
-                android:textSize="18sp" <!-- Navy Blue -->
-            android:paddingBottom="8dp" />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:hint="Search"
+                android:padding="8dp"
+                android:background="@drawable/edit_text_bg"
+                android:textColor="#000000" />
 
-            <!-- Assignment Title -->
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="📝 Topic: Data Structures Overview"
-                android:textColor="#003366"
-                android:textSize="18sp" <!-- Navy Blue -->
-            android:paddingBottom="8dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_save"
+                app:tint="#FFFFFF"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
 
-            <!-- Due Date -->
-            <TextView
-                android:id="@+id/tvDueDate"
-                android:layout_width="188dp"
-                android:layout_height="wrap_content"
-                android:background="#003366"
-                android:text="📅 Due: 25 April 2025"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" <!-- Navy Blue -->
-            android:paddingBottom="8dp" />
+        <!-- Today + Add Notes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="space_between"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
 
-            <!-- Status -->
             <TextView
-                android:id="@+id/tvStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="🔔 Status: Not Submitted"
-                android:textColor="#D32F2F"
-                android:textSize="16sp" />
+                android:text="Today"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <!-- Description -->
-            <TextView
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Notes"
+                android:textSize="12sp"
+                android:backgroundTint="#E0E0E0" />
+        </LinearLayout>
+
+        <!-- My Tasks -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Tasks"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Task List -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Repeat this block for more tasks -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="📄 Assignment Description"
-                android:textColor="#003366"
-                android:textSize="16sp"
-                android:textStyle="bold" <!-- Navy Blue -->
-            android:paddingTop="12dp"
-            android:paddingBottom="6dp" />
+                android:orientation="horizontal"
+                android:paddingVertical="6dp">
 
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="#FFFFFF"
-                android:elevation="3dp"
-                android:padding="14dp"
-                android:text="Explain Stack, Queue, and Linked List with examples and diagrams."
-                android:textColor="#000000"
-                android:textSize="15sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="List item"
+                    android:textSize="16sp" />
 
-            <!-- File Upload Button -->
-            <!-- Navy Blue -->
-            android:textColor="#FFFFFF"
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <!-- You can repeat above task block or use RecyclerView -->
+        </LinearLayout>
+
+        <!-- Assignment Upload Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assignment Upload"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assignment Details"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Assignment Title"
+            android:background="@drawable/edit_text_bg"
+            android:padding="12dp"
             android:layout_marginBottom="12dp" />
 
-            <!-- Selected File Name -->
-            <Button
-                android:id="@+id/btnUpload"
-                android:layout_width="323dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#003366"
-                android:text="📎 Upload File"
-                android:textAllCaps="false"
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:minLines="3"
+            android:gravity="top"
+            android:background="@drawable/edit_text_bg"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
 
-            <!-- Submit Button -->
-            <TextView
-                android:id="@+id/tvFileName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                android:text="No file selected"
-                android:textColor="#757575"
-                android:textSize="14sp" />
-
-            <Button
-                android:id="@+id/btnSubmit"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#003366"
-                android:text="📤 Submit Assignment"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF" <!-- Navy Blue -->
-            android:padding="14dp"
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Due Date (YYYY-MM-DD)"
+            android:background="@drawable/edit_text_bg"
+            android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload File"
+            android:backgroundTint="#D3D3D3"
+            android:textColor="#000000"
+            android:layout_marginBottom="24dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Uploaded Assignment Card -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uploaded Assignments"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#EDEDF5"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="#ECECF3"
+            android:elevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math Assignment"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Complete exercises 1-20"
+                android:layout_marginTop="4dp"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due: 2025-04-30"
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math_Assignment.pdf"
+                android:textStyle="italic"
+                android:textColor="#000088"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
