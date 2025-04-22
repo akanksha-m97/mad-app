@@ -9,7 +9,7 @@ class login_merge : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.email_login_activity)
 
         // Buttons to switch user/admin
         val btnSwitchToUser = findViewById<Button>(R.id.btnSwitchToUser)

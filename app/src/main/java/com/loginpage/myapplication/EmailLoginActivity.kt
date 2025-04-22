@@ -3,50 +3,63 @@ package com.loginpage.myapplication
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
+import android.util.Log
 import android.widget.TextView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 
 class EmailLoginActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var emailField: EditText
+    private lateinit var passwordField: EditText
+    private lateinit var confirmPasswordField: EditText
+    private lateinit var Login: Button
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_phone)
+        setContentView(R.layout.email_login_activity)
 
-        val usernameInput = findViewById<EditText>(R.id.edit_text_id)
-        val phoneInput = findViewById<EditText>(R.id.password_toggle)
-        val createBtn = findViewById<Button>(R.id.button)
-        val switchToEmail = findViewById<TextView>(R.id.switchToEmail)
+        auth = FirebaseAuth.getInstance()
 
-        createBtn.setOnClickListener {
-            val username = usernameInput.text.toString().trim()
-            val phone = phoneInput.text.toString().trim()
+        emailField = findViewById<EditText>(R.id.emailEditText)
+        passwordField = findViewById<EditText>(R.id.password_toggle)
+        Login = findViewById(R.id.button)
 
-            if (username.isEmpty()) {
-                usernameInput.error = "Enter your username"
+        Login.setOnClickListener {
+            val email = emailField.text.toString().trim()
+            val password = passwordField.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (phone.length != 10 || !phone.all { it.isDigit() }) {
-                phoneInput.error = "Enter a valid 10-digit phone number"
-                return@setOnClickListener
-            }
-            // Proceed with phone auth or next activity
-            Toast.makeText(this, "Login with phone successful!", Toast.LENGTH_SHORT).show()
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this,"Login successfull", Toast.LENGTH_SHORT).show()
+                        Log.d("Signup","Signup Successful !")
+                        // Navigate to another activity or home screen
+                        val intent = Intent(this, Dashboard_activity::class.java)
+                        startActivity(intent)
+                        finish()
 
+                    } else {
+                        val errorMessage= task.exception?.message?:"Unknown error"
+                        Log.e("Signup","Signup failed")
+                    }
+
+                }
         }
-
-        switchToEmail.setOnClickListener {
-            val intent = Intent(this, Login_phone::class.java)
+        val loginText: TextView = findViewById(R.id.signup)
+        loginText.setOnClickListener {
+            val intent = Intent(this, PhoneLoginActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
         }
     }
-
-    override fun onBackPressed() {
-        // Prevent back navigation from login screen
-        moveTaskToBack(true)
-    }
-
 }

@@ -3,133 +3,73 @@ package com.loginpage.myapplication
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
+import android.util.Log
 import android.widget.TextView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 
-private fun PhoneLoginActivity.firebaseAuthWithGoogle(text: String) {
-    TODO("Not yet implemented")
-}
 
 class PhoneLoginActivity : AppCompatActivity() {
 
-    private lateinit var googleSignInClient: GoogleSignInClient
-    private lateinit var firebaseAuth: FirebaseAuth
-    private val RC_SIGN_IN = 100
+    private lateinit var auth: FirebaseAuth
+    private lateinit var emailField: EditText
+    private lateinit var passwordField: EditText
+    private lateinit var confirmPasswordField: EditText
+    private lateinit var signupButton: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_phone)
+        setContentView(R.layout.phone_login_activity)
 
-        val usernameInput = findViewById<EditText>(R.id.edit_text_id)
-        val phoneInput = findViewById<EditText>(R.id.password_toggle)
-        val createBtn = findViewById<Button>(R.id.button)
+        auth = FirebaseAuth.getInstance()
 
-        createBtn.setOnClickListener {
-            val username = usernameInput.text.toString().trim()
-            val phone = phoneInput.text.toString().trim()
+        emailField = findViewById<EditText>(R.id.emailEditText2)
+        passwordField = findViewById<EditText>(R.id.password_toggle)
+        confirmPasswordField = findViewById<EditText>(R.id.password_toggle1)
+        signupButton = findViewById(R.id.button)
 
-            if (username.isEmpty()) {
-                usernameInput.error = "Enter your username"
+        signupButton.setOnClickListener {
+            val email = emailField.text.toString().trim()
+            val password = passwordField.text.toString().trim()
+            val confirmPassword = confirmPasswordField.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (phone.length != 10 || !phone.all { it.isDigit() }) {
-                phoneInput.error = "Enter a valid 10-digit phone number"
+            if (password != confirmPassword) {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            // Proceed with phone auth or next activity
-            Toast.makeText(this, "Login with phone successful!", Toast.LENGTH_SHORT).show()
 
-        }
-
-
-        // Configure Google Sign-In
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-
-        val googleSignInClient = GoogleSignIn.getClient(this, gso)
-        firebaseAuth = FirebaseAuth.getInstance()
-
-        // Button click listener
-        val googleSignInBtn = findViewById<Button>(R.id.button) // Change to your actual button ID
-        googleSignInBtn.setOnClickListener {
-            signInWithGoogle()
-        }
-    }
-
-    private fun signInWithGoogle() {
-        val signInIntent = googleSignInClient.signInIntent
-        signInLauncher.launch(signInIntent)
-    }
-    private val signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                Toast.makeText(this, "Google sign-in failed", Toast.LENGTH_SHORT).show()
-            }
-        }
-        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            super.onActivityResult(requestCode, resultCode, data)
-
-            if (requestCode == RC_SIGN_IN) {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-                try {
-                    val account = task.getResult(ApiException::class.java)
-                    firebaseAuthWithGoogle(account.idToken!!)
-                } catch (e: ApiException) {
-                    Toast.makeText(this, "Google sign-in failed", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-
-        fun firebaseAuthWithGoogle(idToken: String) {
-            val credential = GoogleAuthProvider.getCredential(idToken, null)
-            firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this) { task ->
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Sign-in success
-                        val user = firebaseAuth.currentUser
-                        Toast.makeText(this, "Welcome ${user?.displayName}", Toast.LENGTH_SHORT)
-                            .show()
-                        // Navigate to next activity
-                        startActivity(Intent(this, MainActivity::class.java))
+                        Log.d("Signup","Signup Successful !")
+                        // Navigate to another activity or home screen
+                        val intent = Intent(this, Dashboard_activity::class.java)
+                        startActivity(intent)
                         finish()
+
                     } else {
-                        // Sign-in failed
-                        Toast.makeText(this, "Firebase sign-in failed", Toast.LENGTH_SHORT).show()
+                        val errorMessage= task.exception?.message?:"Unknown error"
+                        Log.e("Signup","Signup failed")
                     }
+
                 }
-
-
-
-
-
         }
-
-        val switchToEmail = findViewById<TextView>(R.id.switchToEmail)
-        switchToEmail.setOnClickListener{
+        val loginText: TextView = findViewById(R.id.login)
+        loginText.setOnClickListener {
             val intent = Intent(this, EmailLoginActivity::class.java)
-            Toast.makeText(this,"Button clicked", Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }
-
-
-
     }
 }
+
+
 
 
