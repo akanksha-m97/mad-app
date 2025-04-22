@@ -10,7 +10,7 @@ class LoginPhoneActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_phone)  // This links to login_phone.xml
+        setContentView(R.layout.activity_login_phone)  // This links to login_phone.xml
 
         // Connect XML views with Kotlin code
         val createButton = findViewById<Button>(R.id.button)

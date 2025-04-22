@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    tools:context=".AssignmentActivity">
+
+    <!-- Assignment Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAssignment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeColor="#E0E0E0"
+        app:strokeWidth="1dp"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="384dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Assignment Header -->
+            <TextView
+                android:id="@+id/tvAssignmentHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EduQuest Assignment"
+                android:textColor="#003366"
+                android:textSize="24sp"
+                android:textStyle="bold" <!-- Navy Blue -->
+            android:gravity="center"
+            android:paddingBottom="12dp" />
+
+            <!-- Subject -->
+            <TextView
+                android:id="@+id/tvSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📘 Subject: Computer Science"
+                android:textColor="#003366"
+                android:textSize="18sp" <!-- Navy Blue -->
+            android:paddingBottom="8dp" />
+
+            <!-- Assignment Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📝 Topic: Data Structures Overview"
+                android:textColor="#003366"
+                android:textSize="18sp" <!-- Navy Blue -->
+            android:paddingBottom="8dp" />
+
+            <!-- Due Date -->
+            <TextView
+                android:id="@+id/tvDueDate"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:background="#003366"
+                android:text="📅 Due: 25 April 2025"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" <!-- Navy Blue -->
+            android:paddingBottom="8dp" />
+
+            <!-- Status -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="🔔 Status: Not Submitted"
+                android:textColor="#D32F2F"
+                android:textSize="16sp" />
+
+            <!-- Description -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📄 Assignment Description"
+                android:textColor="#003366"
+                android:textSize="16sp"
+                android:textStyle="bold" <!-- Navy Blue -->
+            android:paddingTop="12dp"
+            android:paddingBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="#FFFFFF"
+                android:elevation="3dp"
+                android:padding="14dp"
+                android:text="Explain Stack, Queue, and Linked List with examples and diagrams."
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <!-- File Upload Button -->
+            <!-- Navy Blue -->
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+            <!-- Selected File Name -->
+            <Button
+                android:id="@+id/btnUpload"
+                android:layout_width="323dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#003366"
+                android:text="📎 Upload File"
+                android:textAllCaps="false"
+
+            <!-- Submit Button -->
+            <TextView
+                android:id="@+id/tvFileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="No file selected"
+                android:textColor="#757575"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#003366"
+                android:text="📤 Submit Assignment"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" <!-- Navy Blue -->
+            android:padding="14dp"
+            android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
