@@ -13,10 +13,10 @@
         android:theme="@style/Theme.EduQuest"
         tools:targetApi="31">
         <activity
-            android:name=".login_merge"
+            android:name=".Login_phone"
             android:exported="false" />
         <activity
-            android:name=".Notes_lectures"
+            android:name=".Notes_Lectures"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

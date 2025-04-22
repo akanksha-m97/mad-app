@@ -46,17 +46,13 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.google.play.services.auth)
     implementation(libs.googleid)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    dependencies {
-        implementation("com.google.android.gms:play-services-auth:20.7.0")
-    }
-
-
-
-
-
-
+    implementation(libs.google.play.services.auth)
+    implementation(libs.firebase.bom)
+implementation(libs.firebase.analytics)
+implementation(libs.firebase.database)
 }

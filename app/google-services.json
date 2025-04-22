@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "919974937915",
-    "project_id": "eduquest-dede0",
-    "storage_bucket": "eduquest-dede0.firebasestorage.app"
+    "project_number": "926604726323",
+    "project_id": "mad-app-cse1-igdtuw",
+    "storage_bucket": "mad-app-cse1-igdtuw.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:919974937915:android:c1c24cc9bc41cd104be31e",
+        "mobilesdk_app_id": "1:926604726323:android:6e66e454971177f7905346",
         "android_client_info": {
           "package_name": "com.loginpage.myapplication"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDECD-xB-QPXYIrmCEitt7bOJZPCXKNyAE"
+          "current_key": "AIzaSyBMnsO0pt2kbEyNjC_R-6gdGIexZUeRPLY"
         }
       ],
       "services": {
